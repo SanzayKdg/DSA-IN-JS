@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="num" id="num" placeholder="Enter number">
+    <input type="submit" onclick="addToStack()" value="Push">
+    <input type="submit" onclick="removeFromStack()" value="Pop">
+    <input type="submit" onclick="display()" value="Show">
+
+    <script>
+        let stack = []
+        let current_size = stack.length
+        let max_value = 5
+
+
+        function addToStack() {
+            let input = parseInt(document.getElementById('num').value)
+            if (current_size < max_value) {
+                stack[current_size] = input
+                current_size++
+                console.log(stack)
+                document.getElementById("num").value = ""
+            } else {
+                console.log("Stack is full", input)
+            }
+        }
+
+
+
+        function removeFromStack() {
+            if (current_size > 0) {
+                current_size--
+                stack.length = current_size
+                console.log(stack)
+            } else {
+                console.log("stack is empty")
+            }
+        }
+
+
+        function display() {
+            for (let i = 0; i < current_size; i++) {
+                console.log("Array", stack[i])
+            }
+        }
+    </script>
+</body>
+
+</html>

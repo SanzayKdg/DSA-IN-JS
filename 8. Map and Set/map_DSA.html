@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Data Structure in JS</title>
+</head>
+
+<body>
+    <script>
+        let data = new Map([
+            ['name', 'demo'], [true, 'boolean'], [100, 'num']
+        ]);
+
+        data.set('color', 'cream')
+        // console.log(data.size) //get size
+        // console.log(data.has('name')) // get keys
+        // console.log(data.get(100)) // get values
+        // data.clear()
+        // console.log(data)
+
+        // for (x of data) {
+        //     console.log(x)
+        // }
+        // data.forEach((item, key) => console.log(key ,": ", item))
+
+        data.delete('name')
+        console.log(data)
+    </script>
+</body>
+
+</html>

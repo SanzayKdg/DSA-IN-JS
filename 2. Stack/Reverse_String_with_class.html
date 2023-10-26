@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reverse String With Stack</title>
+    </head>
+
+    <body>
+        <script>
+        class Stack {
+            stack = [];
+            cur_size;
+            max_val;
+            constructor(val) {
+                this.max_val = val
+                this.cur_size = this.stack.length
+
+            }
+
+            pushItem(new_value) {
+                if (this.cur_size < this.max_size) {
+                    this.stack[this.cur_size] = new_value
+                    this.cur_size++
+                    console.log(this.stack)
+                } else {
+                    console.log("Stack is full")
+                }
+            }
+            popItem() {
+                if (this.cur_size <= 0) {
+                    console.log("Stack is empty")
+                } else {
+                    this.cur_size--
+                    this.stack.length = this.cur_size
+                    console.log(this.stack)
+                }
+            }
+
+
+            reverseString(s) {
+                for (let i = 0; i < s.length; i++) {
+                    this.pushItem(s[i])
+
+                }
+
+                for (let i = 0; i < s.length; i++) {
+                    s[i] = this.popItem()
+
+                }
+            }
+
+            
+        }
+        st = new Stack(7)
+    </script>
+    </body>
+
+</html>

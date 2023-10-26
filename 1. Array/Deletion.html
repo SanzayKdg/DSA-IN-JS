@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Deleting Array</title>
+
+    </head>
+
+    <body>Input:
+        <input type="text" placeholder="Number" id="input">
+        <input type="submit" value="Submit" onclick="clickHandler()">
+
+    </body>
+    <script>
+        let arr = [9, 11, 13, 10, 2, 3];
+        let pos = document.getElementById("input").value
+        pos = parseInt(pos)
+        function clickHandler() {
+            for (let i = pos; i < arr.length - 1; i++) {
+                arr[i] = arr[i + 1]
+            }
+            arr.length = arr.length - 1
+            console.log(arr)
+        }
+    </script>
+</html>

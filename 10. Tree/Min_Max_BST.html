@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min and Max in Binary Search Tree</title>
+</head>
+
+<body>
+    <script>
+        class Nodes {
+            constructor(value) {
+                this.value = value
+                this.left = null
+                this.right = null
+            }
+        }
+
+        class BST {
+            constructor() {
+                this.root = null
+            }
+
+            // check if the tree root is empty
+            isTreeEmpty() {
+                return this.root === null
+            }
+
+            // Make a Binary Search Tree
+            makeTree(value) {
+                let newNode = new Nodes(value)
+                if (this.root === null) {
+                    this.root = newNode
+                } else {
+                    this.insertNode(this.root, newNode)
+                }
+            }
+
+            // Inserting Node in Binary Search Tree
+            insertNode(root, newNode) {
+                if (root.value < newNode.value) {
+                    if (root.right === null) {
+                        root.right = newNode
+
+                    }
+                    else {
+                        this.insertNode(root.right, newNode)
+                    }
+                } else {
+                    if (root.left === null) {
+                        root.left = newNode
+                    } else {
+                        this.insertNode(root.left, newNode)
+                    }
+                }
+            }
+
+            // Searching node in a binary search tree
+            searchNode(root, node) {
+                if (root === null) {
+                    return null
+                }
+                else if (node === root.value) {
+                    return root
+                }
+                else if (node < root.value) {
+                    return this.searchNode(root.left, node)
+                }
+                else {
+                    return this.searchNode(root.right, node)
+                }
+            }
+
+            // ----------------------- MIN AND MAX IN BST -----------------------------------
+            
+            // Min value
+            minValue(root) {
+                if (!root.left) {
+                    return root.value
+                } else {
+                    return this.minValue(root.left)
+                }
+            }
+
+            // Max value
+            maxValue(root) {
+                if (!root.right) {
+                    return root.value
+                } else {
+                    return this.maxValue(root.right)
+                }
+            }
+
+        }
+
+        let bst = new BST()
+        // let node = new Nodes()
+
+        bst.makeTree(20)
+        bst.makeTree(10)
+        bst.makeTree(5)
+        bst.makeTree(11)
+        bst.makeTree(30)
+        bst.makeTree(40)
+        bst.makeTree(23)
+
+
+        console.log(bst.minValue(bst.root))
+        console.log(bst.maxValue(bst.root))
+    </script>
+</body>
+
+</html>

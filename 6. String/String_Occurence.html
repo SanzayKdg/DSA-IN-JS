@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check String Occurrence</title>
+</head>
+<body>
+    <script>
+        // let str = "pneumonoultramicroscopicsilicovolcanoconiosis"
+        let str = "hello"
+
+        function checkOccurrence(string){
+            let obj = {}
+            let maxKey = ''
+            for (const i of string) {
+                obj[i] = (obj[i] || 0) + 1
+
+                if(maxKey === '' || obj[i] > obj[maxKey]){
+                    maxKey = i
+                }
+            }
+            console.log(maxKey)
+            console.log(obj)
+        }
+
+        checkOccurrence(str)
+    </script>
+</body>
+</html>

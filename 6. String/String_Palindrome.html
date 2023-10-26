@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check String Palindrome</title>
+</head>
+<body>
+    <script>
+        let str = "LeveL"
+        
+
+        function checkPalindrome(string){
+        let start = 0
+        let end = string.length - 1
+
+        while (start < end) {
+            if(string[start] !== string[end]){
+                return false
+            }
+            start++
+            end--
+        }                
+           return true     
+        }
+
+        console.log(checkPalindrome(str.toLocaleLowerCase()))
+    </script>
+</body>
+</html>

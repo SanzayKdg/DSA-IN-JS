@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Graph and Add and Remove Vertex</title>
+</head>
+
+<body>
+    <script>
+        class Graph {
+            constructor() {
+                this.data = {}
+            }
+
+            // ------------------------------ INSERTION --------------------------
+
+            // Make a new graph and add vertices in graph
+            addVertex(vertex) {
+                if (!this.data[vertex]) {
+                    this.data[vertex] = []
+
+                }
+            }
+
+            // connect vertices with edges
+            addEdge(v1, v2) {
+                if (!this.data[v1]) {
+                    this.addVertex(v1)
+                }
+
+                if (!this.data[v2]) {
+                    this.addVertex(v2)
+                }
+
+
+                this.data[v1].push(v2)
+                this.data[v2].push(v1)
+            }
+
+            // ------------------------------ DELETION --------------------------
+            // remove edge from graph
+            removeEdge(v1, v2) {
+                if (!this.data[v1]) {
+                    console.log(false)
+                    return false
+
+                }
+
+                if (!this.data[v2]) {
+                    console.log(false)
+                    return false
+
+                }
+
+                this.data[v1] = this.data[v1].filter(element => {
+                    return element != v2;
+                })
+                this.data[v2] = this.data[v2].filter(element => {
+                    return element != v1;
+                })
+            }
+
+            // remove vertex from graph
+            removeVertex(vertex) {
+                if (!this.data[vertex]) {
+                    console.log(false)
+                    return false
+                }
+
+                // before deleting vertex remove edge
+                for (const item of this.data[vertex]) {
+                    this.removeEdge(vertex, item)
+
+                }
+
+                // delete edge
+                delete this.data[vertex]
+
+            }
+
+        }
+
+        let graph = new Graph()
+
+        // Make a new graph and add vertices in graph
+        graph.addVertex('a')
+        graph.addVertex('b')
+        graph.addVertex('c')
+        graph.addVertex('d')
+
+        // connect vertices with edges
+        graph.addEdge('a', 'b')
+        graph.addEdge('a', 'c')
+        graph.addEdge('b', 'c')
+        graph.addEdge('b', 'd')
+
+        // remove edge from graph
+        // graph.removeEdge('a', 'b')
+        // graph.removeEdge('b', 'd')
+        // graph.removeEdge('e', 'c') // returns false
+        // graph.removeEdge('c', 'e') // returns false 
+        // graph.removeEdge('f', 'e') // returns false
+
+        // remove vertex from graph
+
+        graph.removeVertex('b')
+        // graph.removeVertex('e') // returns false
+
+        console.log(graph.data)
+    </script>
+</body>
+
+</html>

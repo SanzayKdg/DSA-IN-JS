@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Linear Seach with input</title>
+
+    </head>
+
+    <body>
+        <input type="text" placeholder="Enter element to search" id="num">
+        <input type="submit" onclick="find()">
+
+        <script>
+        let arr = [21, 32, 123, 69, 45, 76, 23, 25]
+
+        function find() {
+            let find = parseInt(document.getElementById("num").value)
+            for (let i = 0; i <= arr.length; i++) {
+
+                if (arr[i] === find) {
+                    console.log(`Your item is in ${i} position.`)
+                    break
+                } 
+
+            }
+        }
+    </script>
+    </body>
+
+</html>

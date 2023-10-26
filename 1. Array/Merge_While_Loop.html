@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Merge Array Using While Loop</title>
+
+    </head>
+
+    <body>Input:
+        <input type="text" placeholder="Number" id="input">
+        <input type="submit" value="Submit" onclick="clickHandler()">
+
+    </body>
+    <script>
+    // complex way to solve merging using while loop
+    let arr1 = [3, 7, 12, 34, 56, 90]
+    let arr2 = [4, 9, 25, 45]
+    let arr3 = []
+
+    let i = 0
+    let j = 0
+    let k = 0
+    function clickHandler() {
+        while (i < arr1.length && j < arr2.length) {
+            if (arr1[i] < arr2[j]) {
+                arr3[k] = arr1[i];
+                i++;
+                console.log(arr3[k], "inside if")
+            } else {
+                arr3[k] = arr2[j];
+                j++;
+                console.log(arr3[k], "inside else")
+
+            }
+            k++;
+        }
+
+        while(i<arr1.length){
+            arr3[k] = arr1[i]
+            i++
+            console.log(arr3[k], "final while loop")
+            k++
+        }
+
+        console.log(arr3)
+    }
+</script>
+
+</html>

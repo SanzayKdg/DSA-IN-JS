@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD ON OBJECT</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            name: "demo", age: 24, email: "temp@mail.com", contact: 1234
+        }
+
+        // delete obj.name
+
+        // console.log(obj)
+
+
+        for (const x in obj) {
+            console.log(obj[x])
+        }
+        // for (const i of obj) {
+        // console.log(i)
+        // }
+
+
+        // important function
+        console.log(Object.keys(obj)) // prints keys in array form
+        console.log(Object.values(obj)) // prints values in array form
+        console.log(Object.entries(obj)) // prints keys and values in array form
+
+    </script>
+</body>
+
+</html>

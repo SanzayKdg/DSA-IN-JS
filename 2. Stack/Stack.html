@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Push and Pop in Stack</title>
+</head>
+
+<body>
+    <script>
+        let stack = []
+        let current_size = stack.length
+        let max_value = 5
+
+        function addToStack(new_value) {
+            if (current_size < max_value) {
+                stack[current_size] = new_value
+                current_size++
+            } else {
+                console.log("Stack is full in value", new_value)
+            }
+        }
+
+        addToStack(20)
+        addToStack(1)
+        addToStack(2)
+        addToStack(3)
+        addToStack(5)
+        addToStack(6)
+
+
+        function removeFromStack() {
+            if (current_size > 0) {
+                current_size--
+                stack.length = current_size
+            } else {
+                console.log("Stack is empty")
+            }
+        }
+        removeFromStack()
+        removeFromStack()
+        removeFromStack()
+        removeFromStack()
+        removeFromStack()
+        removeFromStack()
+        console.log(stack)
+    </script>
+</body>
+
+</html>

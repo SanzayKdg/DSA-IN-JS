@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set with DSA in JS</title>
+</head>
+
+<body>
+    <script>
+        let data = new Set(["ram", "shyam"])
+        data.add('apple')
+        data.add('apple') // removes duplicate items
+        data.add('ball')
+        data.add('cat')
+        data.add('dog')
+        data.add({ name: "egg", index: 5 })
+        console.log(data.size) // returns size of Set
+        console.log(data.has('aeroplane')) // checks if the Set has given items
+        // data.forEach((element, index) => console.log(element))
+        // for (const i of data) {
+            // console.log(i)
+        // }
+        // data.clear() // clears the items of Set
+        // console.log(data)
+
+        console.warn(data.values()) // returns values
+        console.warn(data.keys()) // return keys
+        console.log(data.entries()) // return both keys and values 
+            
+    </script>
+</body>
+
+</html>

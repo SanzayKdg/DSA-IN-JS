@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Inserting Element in array</title>
+    </head>
+
+    <body>
+        <p>
+            Normal Array
+        </p>
+        <input type="submit" onclick="generate()" value="Genrate">
+
+        <input type="text" id="element" placeholder="Element">
+        <input type="text" id="pos" placeholder="Position">
+        <input type="text" id="delElem" placeholder="Delete Element">
+        <p>
+            Array Insertion using Default Function
+        </p>
+        <input type="submit" value="Generate" onclick="generate2()">
+
+        <p>
+            Array Insertion using user defined function
+        </p>
+        <input type="submit" value="Generate" onclick="generate3()">
+
+        <script>
+        let arr = [9, 11, 13, 0, 2, 3];
+        let num = document.getElementById("element").value
+        num = parseInt(num)
+        let pos = document.getElementById("pos").value
+        let delElem = document.getElementById("delElem").value
+        pos = parseInt(pos)
+        delElem = parseInt(delElem)
+        // Display normal array
+        function generate() {
+            alert(arr)
+        }
+        // Display array and insert element using default function
+        function generate2() {
+            console.log(arr, "Before splice")
+            arr.splice(pos, delElem, num)
+            console.log(arr, "after Splice")
+        }
+        // display array and insert element using 
+        function generate3() {
+          
+            for (let i = arr.length - 1; i >= 0; i--) {
+                if (i >= pos) {
+                    arr[i + 1] = arr[i]
+                    if (i == pos) {
+                        arr[i] = num
+                    }
+                }
+            }
+            console.log(arr)
+        }
+    </script>
+    </body>
+
+</html>

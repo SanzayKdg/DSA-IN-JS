@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Search Array</title>
+
+    </head>
+
+    <body>Input:
+        <input type="text" placeholder="Number" id="input">
+        <input type="submit" value="Submit" onclick="clickHandler()">
+
+    </body>
+    <script>
+    let arr = [9, 11, 13, 10, 2, 3, 99, 12, 15, 23, 10];
+    let pos = document.getElementById("input").value
+    pos = parseInt(pos)
+    let index = []
+    function clickHandler() {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === pos) {
+                // index = i // to find single index element of an array
+                index.push(i) // to find multiple index of element with same number 
+            }
+        }
+        console.log(index)
+        // console.log(arr.indexOf(pos))
+    }
+</script>
+
+</html>

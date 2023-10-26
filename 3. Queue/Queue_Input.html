@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>More Queue Operations</title>
+    </head>
+
+    <body>
+        <input type="text" id="num">
+        <input type="submit" onclick="enqueue()" value="Enqueue">
+        <input type="submit" onclick="dequeue()" value="Dequeue">
+        <input type="submit" onclick="front()" value="Front">
+        <input type="submit" onclick="rear()" value="Rear">
+        <script>
+        let queue = []
+        let current_size = queue.length
+        let max_size = 6
+
+        function enqueue() {
+            if (current_size < max_size) {
+                const item = parseInt(document.getElementById("num").value)
+                queue[current_size] = item
+                current_size++
+                document.getElementById("num").value =""
+                console.log(queue)
+            } else {
+                console.log("Queue is full")
+            }
+        }
+
+
+        function dequeue() {
+            if (isEmpty()) {
+                console.log("Queue is empty")
+            } else {
+                for (let i = 0; i < current_size; i++) {
+                    queue[i] = queue[i + 1]
+                }
+                current_size--
+                queue.length = current_size
+                console.log(queue)
+            }
+        }
+
+        function front(){
+            if(isEmpty()){
+                console.log("Queue is empty")
+            }else{
+                console.log(queue[0])
+            }
+        }
+
+        function rear(){
+            if(isEmpty()){
+                console.log("Queue is empty")
+            }else{
+                console.log(queue[current_size-1])
+            }
+        }
+
+        function isEmpty(){
+            if(current_size<=0){
+                return true
+            }else{
+                return false
+            }
+        }
+        // enqueue(5)
+        // enqueue(4)
+        // enqueue(3)
+        // enqueue(2)
+        // enqueue(1)
+        // enqueue(0)
+    </script>
+    </body>
+
+</html>

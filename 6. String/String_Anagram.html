@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Strings Are Anagram</title>
+</head>
+
+<body>
+    <script>
+        let str = "cat"
+        let str1 = "tac"
+
+        function checkAnagram(str1, str2) {
+            let obj1 = {}
+            let obj2 = {}
+
+            if (str1.length !== str2.length) {
+                return false;
+            }
+            for (const i of str1) {
+                obj1[i] = (obj1[i] || 0) + 1
+            }
+            for (const i of str2) {
+                if (!obj1[i]) {
+                    return false
+                }
+
+                obj1[i]--
+            }
+            return true
+
+
+        }
+        console.log(checkAnagram(str, str1))
+    </script>
+</body>
+
+</html>

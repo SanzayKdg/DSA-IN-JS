@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linked List DSA in JS</title>
+</head>
+
+<body>
+    <script>
+        class LinkedList {
+            constructor(data) {
+                this.head = {
+                    value: data,
+                    next: null
+                }
+
+                this.tail = this.head
+                this.size = 1
+            }
+
+            addNode(item){
+                let node= {
+                    value : item,
+                    next : null
+                }
+
+                this.tail.next = node
+                this.tail = node
+                this.size++
+            }
+
+            
+        }
+
+        list = new LinkedList(100)
+        list.addNode(200)
+        list.addNode(300)
+        list.addNode(400)
+        list.addNode(500)
+        list.addNode(600)
+        console.log(list)
+    </script>
+</body>
+
+</html>

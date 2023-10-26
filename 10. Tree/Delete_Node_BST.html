@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Node in BST</title>
+</head>
+
+<body>
+
+    <script>
+        class Nodes {
+            constructor(value) {
+                this.value = value
+                this.left = null
+                this.right = null
+            }
+        }
+
+        class BST {
+            constructor() {
+                this.root = null
+            }
+
+            // check if the tree root is empty
+            isTreeEmpty() {
+                return this.root === null
+            }
+
+            // Make a Binary Search Tree
+            makeTree(value) {
+                let newNode = new Nodes(value)
+                if (this.root === null) {
+                    this.root = newNode
+                } else {
+                    this.insertNode(this.root, newNode)
+                }
+            }
+
+            // Inserting Node in Binary Search Tree
+            insertNode(root, newNode) {
+                if (root.value < newNode.value) {
+                    if (root.right === null) {
+                        root.right = newNode
+
+                    }
+                    else {
+                        this.insertNode(root.right, newNode)
+                    }
+                } else {
+                    if (root.left === null) {
+                        root.left = newNode
+                    } else {
+                        this.insertNode(root.left, newNode)
+                    }
+                }
+            }
+
+            // Searching node in a binary search tree
+            searchNode(root, node) {
+                if (root === null) {
+                    return null
+                }
+                else if (node === root.value) {
+                    return root
+                }
+                else if (node < root.value) {
+                    return this.searchNode(root.left, node)
+                }
+                else {
+                    return this.searchNode(root.right, node)
+                }
+            }
+
+            minValue(root) {
+                if (!root.left) {
+                    return root.value
+                } else {
+                    return this.minValue(root.left)
+                }
+            }
+
+            // Delete Node in a BST
+            deleteNode(root, value) {
+                if (root === null) {
+                    return null
+                }
+
+                if (value < root.value) {
+                    root.left = this.deleteNode(root.left, value)
+                }
+                else if (value > root.value) {
+                    root.right = this.deleteNode(root.right, value)
+                }
+                else {
+                    if (!root.left && !root.right) {
+                        return null
+                    }
+                    else if (!root.left) {
+                        return root.right
+                    }
+                    else if (!root.right) {
+                        return root.left
+                    }
+
+                    root.value = this.minValue(root.right)
+                    root.right = this.deleteNode(root.right, root.value)
+                }
+
+                return root
+            }
+
+            removeElement(value) {
+                this.root = this.deleteNode(this.root, value)
+            }
+
+
+
+            bfsTreeTraverse() {
+                let queue = []
+
+                queue.push(this.root)
+
+                while (queue.length) {
+                    let current = queue.shift()
+                    if (current.left) {
+                        queue.push(current.left)
+                    }
+                    if (current.right) {
+                        queue.push(current.right)
+                    }
+
+                    console.log(current.value)
+                }
+            }
+
+
+        }
+
+        let bst = new BST()
+        // let node = new Nodes()
+
+        bst.makeTree(20)
+        bst.makeTree(10)
+        bst.makeTree(5)
+        bst.makeTree(11)
+        bst.makeTree(30)
+        bst.makeTree(40)
+        bst.makeTree(23)
+
+
+        bst.removeElement(20)
+        bst.bfsTreeTraverse()
+        console.log(bst.root)
+    </script>
+
+</body>
+
+</html>

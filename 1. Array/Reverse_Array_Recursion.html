@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reverse Array With Recursion</title>
+    </head>
+
+    <body>
+        <script>
+        let arr = [42, 32, 12, 54, 34, 1]
+        let temp = 0;
+        function customReverse(arr, start, end) {
+            console.log(arr)
+            if (start <= end) {
+                temp = arr[start]
+                arr[start] = arr[end]
+                arr[end] = temp
+                customReverse(arr, start + 1, end - 1)
+            }
+        }
+        customReverse(arr, 0, arr.length - 1)
+
+        const arr2 = [69, 34, 213 ,123 ,546, ]
+        console.log(arr2.reverse(), "reversed")
+    </script>
+    </body>
+
+</html>

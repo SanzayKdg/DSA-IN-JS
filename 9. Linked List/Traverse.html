@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traverse in Linked List</title>
+</head>
+
+<body>
+    <script>
+        class LinkedList {
+            constructor(data) {
+                this.head = {
+                    value: data,
+                    next: null
+                }
+
+                this.tail = this.head
+                this.size = 1
+            }
+
+            addNode(item) {
+                let node = {
+                    value: item,
+                    next: null
+                }
+
+                this.tail.next = node
+                this.tail = node
+                this.size++
+            }
+
+            // Traversing the list in a node
+
+            traverse(index) {
+                let i = 0 // counter
+                let current_node = this.head
+                while (i < this.size) {
+                    if(i === index)
+                    {
+                        current_node.value = 700
+
+                    }
+                    console.log(current_node)
+                    current_node = current_node.next
+                    i++
+                }
+            }
+        }
+
+        list = new LinkedList(100)
+        list.addNode(200)
+        list.addNode(300)
+        list.addNode(400)
+        list.addNode(500)
+        list.addNode(600)
+        list.traverse(0)
+    </script>
+</body>
+
+</html>

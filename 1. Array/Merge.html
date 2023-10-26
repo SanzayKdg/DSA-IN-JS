@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Merge Array</title>
+
+    </head>
+
+    <body>Input:
+        <input type="text" placeholder="Number" id="input">
+        <input type="submit" value="Submit" onclick="clickHandler()">
+
+    </body>
+    <script>
+    let arr = [1, 2, 3];
+    let arr1 = [4, 5, 6];
+    let arr2 = []
+    // easy way to merge array using for loop
+    function clickHandler() {
+        for (let i = 0; i < arr.length; i++) {
+            arr2[i] = arr[i]
+        }
+        for (let i = 0; i < arr1.length; i++){
+           arr2[arr.length+i] =  arr1[i]
+        }
+        console.log(arr2, "arr2")
+        // // Using pre defined method
+        // let arr3 = arr.concat(arr1)
+        // console.log(arr3)
+
+        // //reverse array 
+        // arr.reverse()
+
+        // // shortcut to merge array
+        // arr2= [...arr, ...arr1]
+        // console.log(arr2)
+    }
+</script>
+
+</html>

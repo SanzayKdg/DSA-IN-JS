@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection Sorting With JavaScript</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 69, 32, 54, 8]
+        // Ascending order
+        // function selectionSort(item) {
+        //     let index;
+        //     for (let i = 0; i < item.length; i++) {
+        //         index = i
+        //         for (let j = i + 1; j < item.length; j++) {
+        //             if (item[j] < item[index]) {
+        //                 index = j
+        //             }
+        //         }
+        //         let temp = item[index]
+        //         item[index] = item[i]
+        //         item[i] = temp
+
+        //     }
+        // }
+
+        // Descending order
+        function selectionSort_M1(item) {
+            let index;
+            // Method 1
+            // for (let i = 0; i < item.length; i++) {
+            //     index = i
+            //     for (let j = i + 1; j < item.length; j++) {
+            //         if (item[j] > item[index]) {
+            //             index = j
+            //         }
+            //     }
+            //     let temp = item[index]
+            //     item[index] = item[i]
+            //     item[i] = temp
+
+            // }
+        }
+
+         // Method 2
+        function selectionSort_M2(item) {
+            let index;
+            for (let i = item.length - 1; i >= 0; i--) {
+                index = i
+                for (let j = i - 1; j >= 0; j--) {
+                    if (item[j] < item[index]) {
+                        index = j
+                    }
+                }
+                let temp = item[index]
+                item[index] = item[i]
+                item[i] = temp
+
+            }
+
+        }
+        // selectionSort(arr)
+         selectionSort_M1(arr)
+         selectionSort_M2(arr)
+        console.log(arr)
+    </script>
+</body>
+
+</html>

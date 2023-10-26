@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reverse String with stack</title>
+    </head>
+
+    <body>
+        <script>
+        let stack = []
+        let current_size = stack.length
+        let max = 6
+
+
+        function pushS(new_value) {
+            if (current_size < max) {
+                stack[current_size] = new_value
+                current_size++
+            } else {
+                console.log("Stack is full")
+            }
+        }
+
+        function popS() {
+            if (current_size > 0) {
+                let lastRemovedItem = stack[current_size-1]
+                current_size--
+                stack.length = current_size
+
+                return lastRemovedItem
+            } else {
+                console.log("Stack is empty")
+            }
+        }
+        let str = "sanjay"
+        str = str.split("")
+
+     
+        
+        // console.log(stack)
+        function reverseString(s) {
+            for (let i = 0; i < s.length; i++) {
+                pushS(s[i])
+            }
+            for (let i = 0; i < s.length; i++) {
+                //   console.log(popS())
+                s[i] = popS()  //storing reverse string
+            }
+
+
+    }
+
+        reverseString(str)
+        console.log(str.join(""))
+    </script>
+    </body>
+
+</html>
